@@ -37,8 +37,14 @@ app.get('/factura', (req,res)=>{
 app.get('/404', (req,res)=>{
     res.render('404');
 })
+app.get('/registro',(req,res)=>{
+    res.render('registro');
+})
+app.get('/login',(req,res)=>{
+    res.render('login');
+})
 app.get('*', (req,res)=>{
-    res.render('index');
+    res.render('login');
 })
 
 app.listen(port,()=>{
