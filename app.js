@@ -43,8 +43,11 @@ app.get('/registro',(req,res)=>{
 app.get('/login',(req,res)=>{
     res.render('login');
 })
+app.get('/index',(req,res)=>{
+    res.render('index');
+})
 app.get('*', (req,res)=>{
-    res.render('login');
+    res.render('index');
 })
 
 app.listen(port,()=>{
