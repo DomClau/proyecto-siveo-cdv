@@ -3,6 +3,8 @@ const express = require('express'); //servidores
 const hbs = require('hbs');//HTML - Dinamicos
 const bodyParser = require('body-parser');//body-post
 const port = process.env.PORT || 3000; //puerto de ejecucion
+const rutasCategorias = require('./src/routes/categorias-routes-api');
+const rutasProveedores = require('./src/routes/proveedores-routes-api');
 
 const app= express();
 //motor para generar las vistas dinamicas
@@ -14,6 +16,13 @@ hbs.registerPartials(__dirname + '/view/partials', ()=>{})
 app.use(express.static('public')); //parte publica de la app
 app.use(bodyParser.urlencoded({extended : true})) //procesar el body-parser
 app.use(bodyParser.json())//manejar datos en el formato json
+
+// RUTAS para los datos - API - END POINTS 
+//Vamos a usar las rutas definidas en routes
+app.use(rutasCategorias);
+app.use(rutasProveedores);
+//RUTAS PARA LAS VISTAS
+//Rutas - temporales
 
 //procesar solicitudes del tipo GET y POST en los navegadores
 app.get('/clientes', (req,res)=>{

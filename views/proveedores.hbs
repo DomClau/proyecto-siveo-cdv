@@ -347,20 +347,20 @@
                                   <div class="p-6 space-y-4">
                                     <div class="input-area">
                                       <label for="name" class="form-label">Nombre</label>
-                                      <input id="name" type="text" class="form-control" placeholder="Digite su nombre completo">
+                                      <input id="nombreProveedorAlta" type="text" class="form-control" placeholder="Digite su nombre completo">
                                     </div>
                                     <div class="input-area">
                                     <label for="direccion" class="form-label">Direccion</label>
-                                    <textarea id="direccion" rows="3" class="form-control" placeholder="Digite su direccion"></textarea>
+                                    <textarea id="direccionProveedorAlta" rows="3" class="form-control" placeholder="Digite su direccion"></textarea>
                                     </div>
                                     <div class="input-area">
                                     <label for="telefono" class="form-label">Telefono</label>
-                                    <input id="telefono" type="text" class="form-control" placeholder="Digite su numero telefonico">
+                                    <input id="telefonoProveedorAlta" type="text" class="form-control" placeholder="Digite su numero telefonico">
                                     </div>
                                   </div>
                                   <!-- Modal footer -->
                                   <div class="flex items-center p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">
-                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-success-500">Guardar</button>
+                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-success-500" onclick="crearProveedor();">Guardar</button>
                                     <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-secondary-500">Cancelar</button>
                                   </div>
                                 </div>
@@ -391,20 +391,20 @@
                                   <div class="p-6 space-y-4">
                                     <div class="input-area">
                                       <label for="name" class="form-label">Nombre</label>
-                                      <input id="name" type="text" class="form-control" placeholder="Escribe tu nombre">
+                                      <input id="nombreProveedorActualizar" type="text" class="form-control" placeholder="Escribe tu nombre">
                                     </div>
                                     <div class="input-area">
                                     <label for="direccion" class="form-label">Direccion</label>
-                                    <textarea id="direccion" rows="3" class="form-control" placeholder="Digite su direccion"></textarea>
+                                    <textarea id="direccionProveedorActualizar" rows="3" class="form-control" placeholder="Digite su direccion"></textarea>
                                     </div>
                                     <div class="input-area">
                                       <label for="telefono" class="form-label">Telefono</label>
-                                      <input id="telefono" type="text" class="form-control" placeholder="Escribe tu numero telefonico">
+                                      <input id="telefonoProveedorActualizar" type="text" class="form-control" placeholder="Escribe tu numero telefonico">
                                     </div>
                                   </div>
                                   <!-- Modal footer -->
                                   <div class="flex items-center p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">
-                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-primary-500">Actualizar</button>
+                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-primary-500" onclick="actualizarProveedor();">Actualizar</button>
                                     <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-secondary-500">Cancelar</button>
                                   </div>
                                 </div>
@@ -437,7 +437,7 @@
                                   </div>
                                   <!-- Modal footer -->
                                   <div class="flex items-center p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">
-                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-danger-500">Eliminar</button>
+                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-danger-500" onclick="borrarProveedor();">Eliminar</button>
                                     <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-secondary-500">Cancelar</button>
                                   </div>
                                 </div>
@@ -451,13 +451,9 @@
                         <span class="  col-span-4 hidden"></span>
                         <div class="inline-block min-w-full align-middle">
                           <div class="overflow-hidden ">
-                            <table class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700 data-table">
+                            <table id="tabla-proveedores" class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700 data-table">
                               <thead class=" bg-slate-200 dark:bg-slate-700">
                                 <tr>
-
-                                  <th scope="col" class=" table-th ">
-                                    Id
-                                  </th>
 
                                   <th scope="col" class=" table-th ">
                                     Nombre
@@ -477,75 +473,7 @@
 
                                 </tr>
                               </thead>
-                              <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-
-                                <tr>
-                                  <td class="table-td">1</td>
-                                  <td class="table-td">
-                                    <p>Ada Lovelace</p>
-                                  </td>
-                                   <td class="table-td">Arroyo #12</td>
-                                  <td class="table-td ">
-                                    <div>
-                                      4921839214
-                                    </div>
-                                  </td>
-                                  <td class="table-td ">
-                                    <div class="flex space-x-3 rtl:space-x-reverse">
-                                      <button data-bs-toggle="modal" data-bs-target="#updateModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                      </button>
-                                      <button data-bs-toggle="modal" data-bs-target="#deleteModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td class="table-td">2</td>
-                                  <td class="table-td ">Grace Hopper</td>
-                                  <td class="table-td ">Miguel Hidalgo #1</td>
-                                  <td class="table-td ">
-                                    <div>
-                                      4925869632
-                                    </div>
-                                  </td>
-                                  <td class="table-td ">
-                                    <div class="flex space-x-3 rtl:space-x-reverse">
-                                      <button data-bs-toggle="modal" data-bs-target="#updateModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                      </button>
-                                      <button data-bs-toggle="modal" data-bs-target="#deleteModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td class="table-td">3</td>
-                                  <td class="table-td ">Margaret Hamilton</td>
-                                  <td class="table-td ">Juan Aldama #9</td>
-                                  <td class="table-td ">
-                                    <div>
-                                      7369215283
-                                    </div>
-                                  </td>
-                                  <td class="table-td ">
-                                    <div class="flex space-x-3 rtl:space-x-reverse">
-                                      <button data-bs-toggle="modal" data-bs-target="#updateModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                      </button>
-                                      <button data-bs-toggle="modal" data-bs-target="#deleteModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-
-                                
-                                
+                              <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700"> 
                               </tbody>
                             </table>
                           </div>
@@ -624,5 +552,8 @@
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="assets/js/rt-plugins.js"></script>
   <script src="assets/js/app.js"></script>
+
+  <!-- scripts propios -->
+  <script src="assets/js/js-propios/proveedores-front.js"></script>
 </body>
 </html>

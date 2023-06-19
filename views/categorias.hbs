@@ -302,17 +302,17 @@
                                   <!-- Modal body -->
                                   <div class="p-6 space-y-4">
                                     <div class="input-area">
-                                      <label for="id" class="form-label">ID</label>
-                                      <input id="id" type="text" class="form-control" placeholder="Digite el id de categoria">
+                                      <label for="name" class="form-label">Nombre:</label>
+                                      <input id="descripcionCategoriaAlta" type="text" class="form-control" placeholder="Digite el nombre de categoria">
                                     </div>
                                     <div class="input-area">
-                                    <label for="description" class="form-label">Descripcion</label>
-                                    <textarea id="description" rows="5" class="form-control" placeholder="Describa la caegoria"></textarea>
+                                    <label for="description" class="form-label">Observaciones</label>
+                                    <textarea id="observacionesCategoriaAlta" rows="5" class="form-control" placeholder="Digite observaciones"></textarea>
                                     </div>
                                   </div>
                                   <!-- Modal footer -->
                                   <div class="flex items-center p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">
-                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-success-500">Guardar</button>
+                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-success-500" onclick="crearCategoria();">Guardar</button>
                                     <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-secondary-500">Cancelar</button>
                                   </div>
                                 </div>
@@ -341,17 +341,17 @@
                                   <!-- Modal body -->
                                   <div class="p-6 space-y-4">
                                     <div class="input-area">
-                                      <label for="id" class="form-label">ID</label>
-                                      <input id="id" type="text" class="form-control" placeholder="Digite el id de categoria">
+                                      <label for="descripcion" class="form-label">Descripcion</label>
+                                      <input id="descripcionCategoriaActualizar" type="text" class="form-control" placeholder="Digite el id de categoria">
                                     </div>
                                     <div class="input-area">
-                                    <label for="description" class="form-label">Descripcion</label>
-                                    <textarea id="description" rows="5" class="form-control" placeholder="Descriva la categoria"></textarea>
+                                    <label for="observaciones" class="form-label">Descripcion</label>
+                                    <textarea id="observacionesCategoriaActualizar" rows="5" class="form-control" placeholder="Descriva la categoria"></textarea>
                                     </div>
                                   </div>
                                   <!-- Modal footer -->
                                   <div class="flex items-center p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">
-                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-primary-500">Actualizar</button>
+                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-primary-500" onclick="actualizarCategoria();">Actualizar</button>
                                     <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-secondary-500">Cancelar</button>
                                   </div>
                                 </div>
@@ -383,7 +383,7 @@
                                   </div>
                                   <!-- Modal footer -->
                                   <div class="flex items-center p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">
-                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-danger-500">Eliminar</button>
+                                    <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-danger-500" onclick="borrarCategoria();">Eliminar</button>
                                     <button data-bs-dismiss="modal" class="btn inline-flex justify-center text-white bg-secondary-500">Cancelar</button>
                                   </div>
                                 </div>
@@ -397,12 +397,9 @@
                         <span class="  col-span-4 hidden"></span>
                         <div class="inline-block min-w-full align-middle">
                           <div class="overflow-hidden ">
-                            <table class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700 data-table">
+                            <table  id="tabla-categorias" class="min-w-full divide-y divide-slate-100 table-fixed dark:divide-slate-700 data-table">
                               <thead class=" bg-slate-200 dark:bg-slate-700">
                                 <tr>
-                                  <th scope="col" class=" table-th ">
-                                    Id
-                                  </th>
 
                                   <th scope="col" class=" table-th ">
                                     Descripcion
@@ -415,48 +412,6 @@
                                 </tr>
                               </thead>
                               <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
-                                <tr>
-                                  <td class="table-td">1</td>
-                                  <td class="table-td">Alimentos y bebidas</td>
-                                  <td class="table-td">
-                                    <div class="flex space-x-3 rtl:space-x-reverse">
-                                      <button data-bs-toggle="modal" data-bs-target="#updateModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                      </button>
-                                      <button data-bs-toggle="modal" data-bs-target="#deleteModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td class="table-td">2</td>
-                                  <td class="table-td">Botanas</td>
-                                  <td class="table-td ">
-                                    <div class="flex space-x-3 rtl:space-x-reverse">
-                                      <button data-bs-toggle="modal" data-bs-target="#updateModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                      </button>
-                                      <button data-bs-toggle="modal" data-bs-target="#deleteModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td class="table-td">3</td>
-                                  <td class="table-td">Alimentos y bebidas</td>
-                                  <td class="table-td ">
-                                    <div class="flex space-x-3 rtl:space-x-reverse">
-                                      <button data-bs-toggle="modal" data-bs-target="#updateModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                      </button>
-                                      <button data-bs-toggle="modal" data-bs-target="#deleteModal" class="action-btn" type="button">
-                                        <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
                               </tbody>
                             </table>
                           </div>
@@ -534,5 +489,9 @@
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="assets/js/rt-plugins.js"></script>
   <script src="assets/js/app.js"></script>
+
+  <!-- scripts propios -->
+  <script src="assets/js/js-propios/categorias-front.js" ></script>
+
 </body>
 </html>
